@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人页面主页</title>
+    <!--导航栏功能-->
+    <style>
+        .top-bar {
+            width: 100%;
+            height: 50px;
+            margin: 0;
+            display: flex;
+        }
+        .box-top {
+            width: 100%;
+            min-width: 1350px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        .top-ui {
+            width: 100%;
+            min-width: 800px;
+            height: 50px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .top-ui li{
+            width:10%;
+            min-width: 50px;
+            margin:-5px 50px 0 70px;
+            float: left;
+            text-align: center;
+            display: block;
+        }
+        .top-ui a{
+            color: #7d7d7d;
+            font-weight: bold;
+            text-decoration: none;//下划线;
+        }
+        .top-ui a:hover{
+            color: rgba(0, 0, 0, 0.8);
+        }
+        .top-ui img{
+            height: 40px;
+            margin: 0;
+            padding: 0;
+            display: inline;
+            position: relative;
+            top: -10px;
+        }
+        .top-ui h1
+        {
+            text-align: center;
+            color:#7d7d7d;
+            font-size:15px;
+            width:150px;
+            margin-left:100px;
+            margin-top:0px;
+        }
+        #box{
+            top:100px;
+            width: 1280px;
+            height: 720px;
+            margin: auto;
+            border-radius:1%/2%;
+            background: url("/wty056/image/test1.jpg") no-repeat;
+            background-size:cover;
+            transition: all 1s;
+            position: relative;
+        }
+        .icon_left{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 45%;
+            left:10px;
+        }
+        .icon_right{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 45%;
+            right:10px;
+        }
+    </style>
+    <!--轮播图功能-->
+    <script>
+        var i=1;//表示当前图片所在位置
+        var time = setTimeout("showImg()", 2000);//启动时钟事件刷新时间 1000==1秒
+        function icon_left(){
+            clearTimeout(time)
+            if(i<=1){
+                i=5;
+            }else{
+                i=i-2;
+            }
+            console.info(i)
+            showImg()
+        }
+        function icon_right(){
+            clearTimeout(time)
+            showImg()
+        }
+        function showImg()
+        {
+            //让背景图片显示
+            i++;
+            if(i == 6) {//5表示图片有5张1\2\3\4\5
+                i = 1;
+            }
+            document.getElementById("box").style.background = "url(/wty056/image/test" + i + ".jpg) no-repeat";
+            document.getElementById("box").style.backgroundSize = "cover";
+
+            //通过id获取标签并修改背景样式
+            time = setTimeout("showImg()", 2000);
+            document.getElementById("box").ondblclick=function()
+            {
+                switch (i)
+                {
+                    case 1:
+                        location.href = "information1.html";
+                        break;
+                    case 2:
+                        location.href = "information2.html";
+                        break;
+                    case 3:
+                        location.href = "information3.html";
+                        break;
+                    case 4:
+                        location.href = "information4.html";
+                        break;
+                    case 5:
+                        location.href = "information5.html";
+                        break;
+                }
+            }
+        }
+
+
+    </script>
+</head>
+<body style="background-color: rgb(0,0,0)">
+<!--导航栏功能-->
+<div class="top-bar">
+    <div class="box-top">
+        <ul class="top-ui">
+            <li>
+                <a href="https://kennny6.github.io/cs2304.github.io/"><img src="/wty056/image/logo.png"></a>
+            </li>
+            <li><a href="#"> 番剧推荐页 </a></li>
+            <li><a href="index.html"> 主页 </a></li>
+            <li><h1>点击图片跳转详情</h1><li>
+        </ul>
+
+    </div>
+</div>
+
+<!--轮播图-->
+<div id="box">
+    <img class="icon_left" src="/wty056/image/left.png" onclick="icon_left()">
+    <img class="icon_right" src="/wty056/image/right.png" onclick="icon_right()">
+</div>
+</body>
+</html>

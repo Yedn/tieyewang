@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>开场动画</title>
+    <style>
+    .videoContent
+    {
+        width: 100%;
+        height: 100%;
+    }
+    .videoElement
+    {
+        object-fit: cover;
+    }
+    </style>
+</head>
+<body>
+<div class="videoContent">
+    <video id = "MyVideo" class="videoElement" muted="muted" autoplay="autoplay" width="100%" height="100%">
+        <source src="/wty056/image/start.mp4" type="video/mp4" />
+        <script>
+            var video = document.getElementById("MyVideo");
+            video.addEventListener(setTimeout(function(){window.location.href="page1.html"},14900))
+        </script>
+    </video>
+</div>
+</body>
+</html>
