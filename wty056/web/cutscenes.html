@@ -21,7 +21,7 @@
         <source src="../image/start.mp4" type="video/mp4" />
         <script>
             var video = document.getElementById("MyVideo");
-            video.addEventListener(setTimeout(function(){window.location.href="page1.html"},14900))
+            video.addEventListener("ended",function(){window.location.href="page1.html"})
         </script>
     </video>
 </div>
